@@ -1,0 +1,1765 @@
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+
+
+<style>
+    .hs-form-13a7fde3-5ada-437f-8e31-78db6e482e94 strong {
+        color: rgb(107, 176, 189) !important;
+    }
+
+    .heart {
+        margin-right: 4px;
+        padding-right: 7px;
+    }
+
+    .parallax .background-image-holder {
+        background-size: 200% !important;
+    }
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    @media screen and (min-width: 768px) {
+        .hide-desktop {
+            display: none;
+        }
+    }
+
+    .main-content {
+        padding-bottom: 150px;
+        /* Allow space for sticky footer */
+    }
+
+    .quote h4,
+    .quote h5,
+    .quote span {
+        color: white;
+    }
+
+    .height-min-100 {
+        min-height: 100vh;
+    }
+
+    @media screen and (max-width: 1100px) {
+        .speaker-box-title {
+            gap: 0 !important;
+            flex-direction: column !important;
+            align-items: start !important;
+        }
+
+        .speaker-box-title h1 {
+            font-size: 2em !important;
+        }
+
+        .speaker-box-title img {
+            width: 50px;
+        }
+
+    }
+
+    @media screen and (min-width: 1101px) {
+        .speaker-box-title img {
+            height: 200px;
+        }
+    }
+
+    b a {
+        cursor: pointer;
+    }
+
+    #hsForm_13a7fde3-5ada-437f-8e31-78db6e482e94,
+    #hsForm_172c5b47-60b1-48aa-b997-813dcf4beedb {
+        fieldset {
+            margin: 0 !important;
+
+            &:nth-of-type(1) {
+                line-height: 15px;
+            }
+
+            &:nth-of-type(2) {
+                position: relative;
+                bottom: 10px;
+            }
+        }
+
+        .hs-submit {
+            margin-top: 10px;
+        }
+    }
+
+    #hsForm_172c5b47-60b1-48aa-b997-813dcf4beedb .hs_submit {
+        padding-top: 20px;
+    }
+
+
+    div.submitted-message.hs-form-172c5b47-60b1-48aa-b997-813dcf4beedb {
+        p:first-of-type {
+            margin-top: 50px;
+
+            strong {
+                color: rgb(107, 176, 189) !important;
+            }
+        }
+    }
+
+    .featured-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .intensive-section {
+        margin-top: 80px;
+        padding-top: 110px !important;
+        padding-bottom: 30px;
+        background-color: #0e0e0e;
+    }
+
+    .join-arise-section {
+        .row {
+            margin: 0 !important;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    #convocation-image-container {
+        margin-bottom: 100px;
+
+        img {
+            width: 100vw;
+            max-height: 60vh;
+            object-fit: cover;
+        }
+    }
+
+    .background-image-holder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .apply-button {
+        display: inline-block;
+        border: 2px solid #5a939f;
+        border-radius: 80px;
+        padding: 6px 45px;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+
+        &:hover {
+            text-decoration: none;
+            transform: translateY(-3px);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        span {
+            position: relative;
+            bottom: 2px;
+            color: #5a939f;
+        }
+    }
+
+    .sticky-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background-color: #222;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 0 20px;
+    }
+
+    .carousel {
+        overflow: hidden;
+        height: 50px;
+        min-width: 125px;
+    }
+
+    .timeline-container {
+        display: flex;
+    }
+
+
+    #timeline,
+    #sectionTitles {
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.5s ease;
+        max-width: 600px;
+    }
+
+    .section-title {
+        font-weight: bold;
+    }
+
+    .timeline-item,
+    .section-title {
+        min-height: 50px;
+        max-height: 50px;
+        padding-left: 15px;
+    }
+
+    .timeline-item.active::before {
+        content: "+";
+        position: relative;
+        bottom: 0;
+        right: 5px;
+        padding-left: 5px;
+        font-weight: bold;
+        color: white;
+
+        cursor: pointer;
+    }
+
+    .timeline-item.active span {
+        opacity: 1;
+        font-weight: bold;
+        color: white;
+    }
+
+    .timeline-item {
+        color: #d9d9d9;
+        min-height: 50px;
+        max-height: 50px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        /* Limit to two lines */
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        transition: max-height 0.3s ease;
+        cursor: pointer;
+    }
+
+    #modalOverlay,
+    #sectionModal {
+        display: none;
+    }
+
+    .modal-overlay {
+        position: fixed;
+        align-items: center;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: fit-content;
+        min-height: 100px;
+        background: #393939;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1001;
+        display: flex;
+    }
+
+    .modal-content2 {
+        padding: 20px;
+        width: 80%;
+        max-width: 700px;
+        max-height: fit-content;
+        border-radius: 8px;
+        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  */
+        position: relative;
+        color: white;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 0px;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .modal-content2 h2 {
+        text-align: center;
+        margin-top: 0;
+        font-size: 1.5em;
+        color: white;
+    }
+
+    .modal-content2 div {
+        color: white;
+    }
+
+    #sectionList {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section-link {
+        padding: 6px 0;
+        cursor: pointer;
+        color: #333;
+        font-size: 1.2em;
+        text-align: center;
+        transition: background 0.3s ease;
+    }
+
+    .timeline-line {
+        border-right: 1px solid white;
+        width: 25px;
+        margin-right: 20px;
+    }
+
+    .timeline-item {
+        cursor: pointer;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+    }
+
+    /* .timeline-item::before {
+  content: "";
+  position: relative;
+    left: -10px;
+    top: 23px;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+} */
+
+    .timeline-item.expanded {
+        max-height: none;
+        /* Allow full text to be shown */
+    }
+
+    .accordion__content__title {
+        border-radius: 6px;
+        border-bottom: 1px solid #ECECEC;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-bottom: 1px solid #ECECEC;
+        padding-left: 0;
+        background-color: rgb(245, 245, 245);
+        border-color: rgb(245, 245, 245);
+        width: 100%;
+    }
+
+    .accordion {
+        backdrop-filter: blur(15px) !important;
+        -webkit-backdrop-filter: blur(15px) !important;
+        /* background: rgb(46 47 51 / 72%) !important; */
+        border-bottom: solid #333639 1px !important;
+        min-height: unset !important;
+    }
+
+    .accordion-1 li.active .accordion__title {
+        background-color: grey !important;
+        border-color: rgb(107, 176, 189);
+        border-bottom: none;
+    }
+
+    .accordion .accordion__title {
+        margin-bottom: unset !important;
+    }
+
+    .text-container {
+        position: relative;
+        line-height: 1.6;
+    }
+
+    .text-content {
+        overflow: hidden;
+        max-height: 12em;
+        /* Limits the initial visible height */
+        position: relative;
+        transition: max-height 0.3s ease;
+        margin: 0 !important;
+    }
+
+    .more-text a {
+        color: rgb(107, 176, 189) !important;
+    }
+
+    .text-container.read-more .text-content {
+        max-height: none;
+        /* Full text is revealed on click */
+        opacity: 1;
+        /* Full readability */
+    }
+
+    .read-more-btn {
+        background: none;
+        border: none;
+        color: rgb(107, 176, 189);
+        cursor: pointer;
+        padding: 0;
+        font-size: 1.3em;
+        font-weight: 700;
+        z-index: 2;
+        position: relative;
+        width: 100%;
+        height: 30px;
+        padding-top: 20px;
+        padding-bottom: 60px;
+    }
+
+    .gradient-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 18em;
+        /* Adjust height based on desired fade length */
+        background: linear-gradient(to top, #f9f9fb 30%, rgba(255, 255, 255, 0) 100%);
+        pointer-events: none;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .text-container.read-more .gradient-overlay {
+        opacity: 0;
+        visibility: hidden;
+        /* Hide the gradient completely when expanded */
+    }
+
+    .center-center {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .center-center-perm * {
+        justify-content: center !important;
+    }
+
+    .center-center .container {
+        height: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .center-center .row {
+        justify-content: center;
+        display: flex;
+    }
+
+    .speaker-box {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .speaker-box img {
+        border-radius: 40px;
+        margin: 0;
+    }
+
+    .speaker-box h4,
+    .speaker-box h2 {
+        margin: 0;
+    }
+
+    .speaker-box-alt {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        padding-top: 30px;
+        /* margin-bottom: 40px; */
+    }
+
+    .speaker-box-alt img {
+        border-radius: 40px;
+        margin: 0;
+    }
+
+    .speaker-box-alt h4,
+    .speaker-box-alt h2 {
+        margin: 0;
+    }
+
+    .hover-element__reveal[data-overlay]:before {
+        position: absolute;
+        content: '';
+        background: rgb(46, 47, 51, 0.5);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .project-thumb a {
+        pointer-events: none;
+    }
+
+    .report-h1 {
+        font-family: 'Gotham-Book', serif !important;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 2.6em !important;
+        margin-bottom: 0 !important;
+        /* text-transform: uppercase; */
+    }
+
+    .btn--secondary {
+        border-radius: 40px;
+        padding: 10px;
+    }
+
+    .btn--secondary .btn__text {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        padding: 0 10px;
+        color: black !important;
+    }
+
+    .btn--secondary:hover .btn__text {
+        color: white !important;
+    }
+
+    .fas.fa-heart {
+        font-size: 1.5em;
+        padding-right: 10px;
+    }
+
+    .heart path {
+        fill: #F56060;
+    }
+
+    .btn--secondary:hover .heart path {
+        fill: #F56060;
+    }
+
+    .btn--secondary:hover {
+        color: rgb(255, 255, 255) !important;
+        background-color: rgb(32, 138, 158) !important;
+        border-color: white !important;
+    }
+
+    .main-container .quote h4 {
+        color: white;
+    }
+
+    .donor-name-grid {
+        display: grid;
+        width: 100vw;
+        grid-template-columns: repeat(10, 10%);
+        /* Creates 10 equal-width columns */
+    }
+
+    .donor-name-col {
+        text-align: left;
+    }
+
+    .donor-name-col p {
+        font-weight: bold;
+        margin: 0;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: keep-all;
+    }
+
+    .title-row {
+        text-align: center;
+        margin: 120px 0;
+    }
+
+    #donor-names-section {
+        width: 100vw;
+        position: relative;
+        font-size: 12px;
+        line-height: 1.5em;
+
+        .donor-name-col p {
+            margin: 5px 0;
+            line-height: 1.2em;
+            height: auto;
+        }
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+
+    @media screen and (max-width: 1080px) {
+        #donor-names-section {
+            position: relative;
+            font-size: 4px;
+            line-height: 1em;
+
+            .donor-name-col p {
+                margin: 2px 0;
+            }
+        }
+
+        .title-row {
+            font-size: 12px;
+        }
+    }
+
+    #donor-names-container {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media screen and (max-width: 767px) {
+        .timeline-viewer {
+            width: 80%;
+        }
+
+        .background-image-holder.move-left {
+            background-position: 30% 50% !important;
+        }
+
+        .background-image-holder.move-up {
+            background-position: : center;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+
+        .hero-parallax-height {
+            min-height: calc(100vh - 54px);
+        }
+
+        .sticky-footer {
+            justify-content: space-between !important;
+        }
+
+        .cta-kerning {
+            letter-spacing: 0.005em !important;
+        }
+
+    }
+
+    @media screen and (min-width: 768px) {
+        .background-image-holder.move-up {
+            background-position: : center;
+            background-repeat: no-repeat !important;
+            background-size: 100% !important;
+        }
+
+    }
+
+    .callout {
+        text-transform: uppercase;
+        font-style: italic;
+        font-size: 1.5em;
+        display: inline-block;
+        line-height: 1.2em;
+    }
+</style>
+
+<script>
+    function toggleText(button) {
+        const textContainer = button.closest(".text-container");
+        textContainer.classList.toggle("read-more");
+        const buttonId = button.data;
+        console.log(button.data)
+        if (buttonId) {
+            document.getElementById(buttonId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        $(button).hide();
+        // ScrollTrigger.refresh()
+    }
+</script>
+
+<body>
+    <!-- <nav class="sticky-header">
+        <ul class="accordion accordion-1 accordion--oneopen">
+            <li>
+                <div class="accordion__title"> <span class="h5">Section Header</span> </div>
+                <div class="accordion__content">
+                    <div class="accordion__content__title"><span class="h5">Section Header</span></div>
+                </div>
+            </li>
+        </ul>
+    </nav> -->
+    <div class="main-container content-section">
+        <section id="Welcome" style="position: relative; width: 100%; height: 100vh; overflow: hidden; display: flex; align-items: flex-end; justify-content: flex-start;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('img/2025-report/hero.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3);"></div>
+            </div>
+
+            <div style="position: relative; z-index: 10; width: 100%; padding: 50px; display: flex; justify-content: space-between; align-items: flex-end; height: 100%;">
+                <div>
+                    <h1 style="font-family: 'Gotham-Book', serif; font-weight: 700; font-size: 3.5em; color: white; margin: 0; line-height: 1.1; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">2025<br>Light Bearers<br>Annual Report</h1>
+                </div>
+                <div>
+                    <img id="title-logo" width="52" height="52" src="img/2025-report/logo.svg" style="display: block;" />
+                </div>
+            </div>
+        </section>
+        <!-- <section class="cover cover-features imagebg height-min-100 center-center"  data-overlay="0">
+            <div class="background-image-holder"> <img alt="background" src="img/2024-report/spread2.jpg"> </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9 col-md-7 slide-up-item">
+                        <h2> “I saw the universe change today,”
+                        and it was through your support
+                        and prayers that it happened.
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <section id="Opening Letter" style="background-color: #ffffff; min-height: 100vh; padding: 80px 20px; display: flex; align-items: center; justify-content: center;">
+            <div style="max-width: 700px; width: 100%;">
+                <h2 style="font-size: 2.2em; text-align: center; margin: 0 0 50px 0; font-weight: 400; color: #666; letter-spacing: 0.08em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">DEAR FRIEND,</h2>
+
+                <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 50px; gap: 12px;">
+                    <img src="img/2025-report/profile-ty.jpg" height="50" width="50" style="border-radius: 50%; object-fit: cover;" />
+                    <p style="text-align: center; margin: 0; font-size: 0.95em; color: #666; font-weight: 400; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">Ty Gibson, Speaker/Director</p>
+                </div>
+
+                <p style="font-size: 1em; line-height: 1.8; margin: 0 0 25px 0; color: #333; text-align: center; font-weight: 400; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+                    Light Bearers is a partnership that exists because God has given you and us a shared vision and passion. At some point, you connected with this ministry because you resonate with the message we proclaim and the mission God has led us to execute: vindicating the beauty of His character in a world where ugly portraits of Him are ubiquitous.
+                </p>
+
+                <p style="font-size: 1em; line-height: 1.8; margin: 0 0 40px 0; color: #333; text-align: center; font-weight: 400; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+                    As you take in the following report, we hope you are as encouraged as we are by what you read and that you celebrate with us the lives changed, the seeds planted, and the hearts opened through this beautiful collaboration between you, us, and the Holy Spirit. We pray it invigorates you with fresh energy as we all, as followers of Jesus, reclaim territory for the kingdom of God in this dark world.
+                </p>
+
+                <p style="font-size: 1em; text-align: center; margin: 0 0 30px 0; color: #333; font-weight: 400; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+                    Bearing the light with you,
+                </p>
+
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <img src="img/2025-report/ty-sig.png" style="height: 80px; max-height: unset; margin-bottom: 8px;" />
+                    <p style="margin: 0; font-size: 0.95em; color: #666; font-weight: 400; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">Ty Gibson</p>
+                </div>
+
+                <p style="font-size: 1em; text-align: center; margin: 0; color: #666; font-weight: 400; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+                    On behalf of the entire Light Bearers team
+                </p>
+            </div>
+        </section>
+
+        <section style="background: #f5f5f5; padding: 60px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+                <!-- Left Content -->
+                <div>
+                    <h2 style="font-size: 48px; font-weight: 700; color: #d97857; margin: 0 0 30px 0; line-height: 1.2;">Millions of Pages, Countless Lives Changed</h2>
+
+                    <p style="font-size: 16px; color: #333; margin: 0 0 30px 0; line-height: 1.6;">Through your generosity, gospel literature is reaching around the world, speaking to more hearts than we ever could on our own. This year, millions of tracts and thousands of Bibles flowed into homes and hands across six countries. Each page carried the story of Jesus, literally changing lives and planting seeds of faith that will ripple outward for eternity.</p>
+
+
+                    <div style="margin-top: 50px;">
+                        <h3 style="font-size: 32px; font-weight: 700; color: #d97857; margin: 0 0 20px 0;">Total Literature Distributed to Date:</h3>
+
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <svg style="width: 50px; height: 50px; color: #d97857; flex-shrink: 0;" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
+                            </svg>
+                            <span style="font-size: 48px; font-weight: 700; color: #d97857; line-height: 1;">763,076,084</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Image -->
+                <div style="height: 500px;">
+                    <img alt="Literature Distribution" src="img/2025-report/countless-lives-changed.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+                </div>
+            </div>
+        </section>
+
+        <section style="background: #f5f5f5; padding: 60px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: flex-start;">
+                <!-- Left Image -->
+                <div style="height: 500px;">
+                    <img alt="Child with Bible" src="img/2025-report/Publishing.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+                </div>
+
+                <!-- Right Content -->
+                <div style="padding: 20px; border-left: 4px solid #d97857;">
+                    <div style="margin-bottom: 40px;">
+                        <h3 style="font-size: 32px; font-weight: 700; color: #d97857; margin: 0 0 15px 0;">Countries Reached:</h3>
+                        <p style="font-size: 16px; color: #333; margin: 0; line-height: 1.6;">Republic of Congo, Guatemala, Cuba, Ghana, Kenya, and Costa Rica</p>
+                    </div>
+
+                    <div style="margin-bottom: 40px;">
+                        <h3 style="font-size: 32px; font-weight: 700; color: #d97857; margin: 0 0 15px 0;">Literature Distributed:</h3>
+                        <p style="font-size: 16px; color: #333; margin: 0; line-height: 1.6;">4.78 million pieces of gospel literature and 40,000 Bibles</p>
+                    </div>
+
+                    <div>
+                        <h3 style="font-size: 32px; font-weight: 700; color: #d97857; margin: 0 0 25px 0;">Did you know?</h3>
+
+                        <p style="font-size: 16px; color: #333; margin: 0 0 20px 0; line-height: 1.6;">It costs only $1.52 to print and ship one <em style="font-style: italic;">Truth Link</em> Bible Study set.</p>
+
+                        <p style="font-size: 16px; color: #333; margin: 0; line-height: 1.6;">With just $91.20, you can sponsor a full box of 60 sets, delivered directly into the hands of Bible workers in the mission field.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: white; padding: 80px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <!-- Title -->
+                <h2 style="font-size: 48px; font-weight: 700; color: #d97857; text-align: center; margin: 0 0 50px 0;">ARISE Around the World</h2>
+
+                <!-- Introduction Paragraphs -->
+                <div style="max-width: 600px; margin: 0 auto 60px;">
+                    <p style="font-size: 16px; color: #333; line-height: 1.8; margin: 0 0 20px 0;">ARISE was on the move in 2025. In Australia, we discipled all ages, helping students from all over Europe discover the meaning and mission in the story of God's love. The program in Finland sparked a new generation of enthusiastic and gospel-centered young adults to light Europe with the truth of Jesus. Our online program reached homes worldwide, and our intensives in Tarragona, Spain, and Houston, Texas, catalyzed communities with gospel clarity.</p>
+
+                    <p style="font-size: 16px; color: #333; line-height: 1.8; margin: 0;">ARISE is more than a school, course, or project. ARISE is a movement, and Jesus is its champion.</p>
+                </div>
+
+                <!-- Two Column Stats -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 160px; max-width: 900px; margin: 0 auto;">
+                    <!-- ARISE Australia -->
+                    <div>
+                        <h3 style="font-size: 36px; font-weight: 700; color: #d97857; margin: 0 0 30px 0;">ARISE Australia:</h3>
+
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="font-size: 16px; color: #333; line-height: 1.8; margin-bottom: 20px;">• 31 students representing six countries: Norway, Switzerland, Austria, New Zealand, the USA, and Australia</li>
+
+                            <li style="font-size: 16px; color: #333; line-height: 1.8; margin-bottom: 20px;">• 86% of the student body was under 30 years old</li>
+
+                            <li style="font-size: 16px; color: #333; line-height: 1.8;">• 24 students stayed on for the six-month Bibleworking program, ARISE for Life</li>
+                        </ul>
+                    </div>
+
+                    <!-- ARISE Finland -->
+                    <div>
+                        <h3 style="font-size: 36px; font-weight: 700; color: #d97857; margin: 0 0 30px 0;">ARISE Finland:</h3>
+
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="font-size: 16px; color: #333; line-height: 1.8; margin-bottom: 20px;">• 32 students representing 10 countries: Finland, Norway, Australia, USA, Canada, Czechia, Switzerland, Kenya, Estonia, and the Netherlands</li>
+
+                            <li style="font-size: 16px; color: #333; line-height: 1.8; margin-bottom: 20px;">• 96% of the student body was under 30 years old</li>
+
+                            <li style="font-size: 16px; color: #333; line-height: 1.8;">• (Additional stat)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: white; padding: 80px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <!-- Title -->
+                <h2 style="font-size: 48px; font-weight: 700; color: #d97857; text-align: center; margin: 0 0 60px 0;">Testimony</h2>
+
+                <!-- Quote -->
+                <div style="max-width: 900px; margin: 0 auto 80px;">
+                    <p style="font-size: 22px; color: #333; line-height: 1.8; margin: 0; font-style: italic; text-align: center;">The ARISE program showed me the love of God in a way I had never seen, felt, or experienced before. It also helped me to better understand my past and to discover my purpose in life.</p>
+                    <p style="font-size: 18px; color: #333; margin: 30px 0 0 0; text-align: center;">—Silvan</p>
+                </div>
+
+                <!-- Images Grid -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <!-- Image 1 -->
+                    <div style="height: 300px; overflow: hidden; border-radius: 4px;">
+                        <img alt="ARISE students learning" src="img/2025-report/testmony-1.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div style="height: 300px; overflow: hidden; border-radius: 4px;">
+                        <img alt="ARISE group photo" src="img/2025-report/testmony-2.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div style="height: 300px; overflow: hidden; border-radius: 4px;">
+                        <img alt="ARISE participants" src="img/2025-report/testmony-3.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: linear-gradient(135deg, #3d5a6d 0%, #4a6d82 100%); padding: 100px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-align: center;">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h2 style="font-size: 48px; font-weight: 700; color: white; margin: 0 0 50px 0; line-height: 1.2;">Every gift helps more people see the beauty of God's character.</h2>
+
+                <button style="background: #5a9fb5; color: white; padding: 18px 45px; border: none; border-radius: 30px; font-size: 16px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: background 0.3s ease;">YES, I WANT TO IMPACT MORE LIVES WITH MY GIFT!</button>
+            </div>
+        </section>
+
+        <section style="background: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; display: flex; align-items: stretch; margin: 0; padding: 0;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; width: 100%; flex: 1;">
+                <!-- Left Image -->
+                <div style="overflow: hidden;">
+                    <img alt="Dwell Convocation" src="img/2025-report/reading.png" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+
+                <!-- Right Content -->
+                <div style="padding: 80px 100px; display: flex; flex-direction: column; justify-content: flex-start; background: white;">
+                    <h2 style="font-size: 52px; font-weight: 700; color: #d97857; margin: 0 0 40px 0; line-height: 1.3;">Dwell: The Sanctuary and the Heart of God</h2>
+
+                    <p style="font-size: 18px; color: #333; margin: 0 0 50px 0; line-height: 1.7;">For our 2025 Light Bearers Convocation, we gathered in Jasper, Oregon, for four days of worship, fellowship, and studying the sanctuary message. It wasn't just four days of sermons, though. Between the morning walks, evening afterglows, special feature Convo-sations, and engaging kids programs, the Holy Spirit was moving. Commitments to Jesus were made, friendships were renewed, and all of us saw more clearly a God who wants to dwell with us.</p>
+
+                    <div style="margin-top: 60px;">
+                        <div style="margin-bottom: 35px;">
+                            <h4 style="font-size: 20px; font-weight: 700; color: #d97857; margin: 0 0 12px 0;">■ 10 SESSIONS COVERING THE SANCTUARY MESSAGE</h4>
+                        </div>
+
+                        <div style="margin-bottom: 35px;">
+                            <h4 style="font-size: 20px; font-weight: 700; color: #d97857; margin: 0 0 12px 0;">■ HUNDREDS GATHERED, WITH ATTENDANCE PEAKING ON SATURDAY AT CLOSE TO A THOUSAND ATTENDEES</h4>
+                        </div>
+
+                        <div>
+                            <h4 style="font-size: 20px; font-weight: 700; color: #d97857; margin: 0 0 12px 0;">■ 8 BAPTISMS</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: white; padding: 60px 20px 120px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; position: relative;">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <!-- Title -->
+                <h2 style="font-size: 48px; font-weight: 700; color: #d97857; text-align: center; margin: 0 0 60px 0;">Testimony</h2>
+
+                <!-- Quote -->
+                <p style="font-size: 18px; color: #333; line-height: 1.9; margin: 0; font-style: italic; text-align: center;">I was expecting to be blessed as usual, but this time I was really, really blessed. I have heard messages on the Sanctuary many times before, but never with God's love so woven in. The messages opened my eyes to the way to God. By the time the last message was given I could see God standing in the Most Holy Place/The Holy City, looking at me with His arms open wide, waiting for me to run to Him so that He could give me a hug and dwell with me forever! — Sandy</p>
+            </div>
+
+            <!-- Bottom Black Bar -->
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: #1a1a1a;"></div>
+        </section>
+
+        <section style="width: 100%; height: 750px; overflow: hidden; margin: 0; padding: 0;">
+            <img alt="Conference" src="img/2025-report/brain.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+        </section>
+
+        <section style="background: linear-gradient(135deg, #c88566 0%, #d4956f 100%); padding: 80px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-align: center;">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <!-- Title -->
+                <h2 style="font-size: 48px; font-weight: 700; color: white; margin: 0 0 20px 0; line-height: 1.2;">Journey through Scripture, encounter Jesus, and connect in community</h2>
+
+                <!-- Event Info -->
+                <p style="font-size: 18px; color: white; margin: 0 0 15px 0;">Mark your calendars for the 2026 Light Bearers Convocation.</p>
+                <p style="font-size: 22px; font-weight: 700; color: white; margin: 0 0 60px 0;">June 24-27, 2026, Jasper, Oregon</p>
+
+                <!-- Speakers Grid -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; max-width: 1000px; margin: 0 auto;">
+                    <!-- Speaker 1 -->
+                    <div>
+                        <div style="height: 220px; margin-bottom: 30px; overflow: hidden; border-radius: 4px;">
+                            <img alt="Jeffrey Rosario" src="img/2025-report/jeffery.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 style="font-size: 32px; font-weight: 700; color: white; margin: 0;">Jeffrey<br>Rosario</h3>
+                    </div>
+
+                    <!-- Speaker 2 -->
+                    <div>
+                        <div style="height: 220px; margin-bottom: 30px; overflow: hidden; border-radius: 4px;">
+                            <img alt="Ty Gibson" src="img/2025-report/gibson.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 style="font-size: 32px; font-weight: 700; color: white; margin: 0;">Ty<br>Gibson</h3>
+                    </div>
+
+                    <!-- Speaker 3 -->
+                    <div>
+                        <div style="height: 220px; margin-bottom: 30px; overflow: hidden; border-radius: 4px;">
+                            <img alt="David Asscherick" src="img/2025-report/david.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 style="font-size: 32px; font-weight: 700; color: white; margin: 0;">David<br>Asscherick</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: #f5f5f5; padding: 80px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+                <!-- Left Content -->
+                <div>
+                    <h2 style="font-size: 44px; font-weight: 700; color: #d97857; margin: 0 0 30px 0; line-height: 1.2;">Streaming Grace, One Episode at a Time</h2>
+
+                    <p style="font-size: 16px; color: #333; margin: 0 0 40px 0; line-height: 1.6;">In addition to sharing our convocation messages on our YouTube channel, this year we produced a brand new series called Gospel Conversations, a candid, unscripted dialogue series featuring ministry leaders and Bible workers discussing how God's truth heals the complexities of legalistic theology. As listeners can experience the gospel as liberating grace instead of oppressive condemnation. People now see on Wikipedia that we are committed to filming a second season this winter.</p>
+
+                    <div style="margin-top: 50px;">
+                        <div style="margin-bottom: 40px;">
+                            <div style="display: flex; align-items: flex-end; gap: 15px; margin-bottom: 15px;">
+                                <svg style="width: 50px; height: 50px; color: #d97857;" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
+                                </svg>
+                                <span style="font-size: 40px; font-weight: 700; color: #d97857;">67,000</span>
+                            </div>
+                            <p style="font-size: 16px; color: #333; margin: 0;">Hours of Gospel Conversations<br>(that's over seven full years of watching non-stop)</p>
+                        </div>
+
+                        <div style="margin-bottom: 40px;">
+                            <div style="display: flex; align-items: flex-end; gap: 15px; margin-bottom: 15px;">
+                                <svg style="width: 50px; height: 50px; color: #d97857;" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
+                                </svg>
+                                <span style="font-size: 40px; font-weight: 700; color: #d97857;">121,000</span>
+                            </div>
+                            <p style="font-size: 16px; color: #333; margin: 0;">Hours total on the Light Bearers YouTube channel</p>
+                        </div>
+
+                        <div>
+                            <div style="display: flex; align-items: flex-end; gap: 15px; margin-bottom: 15px;">
+                                <svg style="width: 50px; height: 50px; color: #d97857;" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
+                                </svg>
+                                <span style="font-size: 40px; font-weight: 700; color: #d97857;">33%</span>
+                            </div>
+                            <p style="font-size: 16px; color: #333; margin: 0;">So far this year, we've seen a 33% increase in YouTube subscribers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Images Grid -->
+                <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+                    <!-- Image 1 -->
+                    <div style="height: auto; overflow: hidden; border-radius: 4px;">
+                        <img alt="Gospel Conversations" src="img/2025-report/media.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <section style="background: white; padding: 80px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 350px 1fr; gap: 80px; align-items: center;">
+                <!-- Left Image -->
+                <div style="height: 280px; overflow: hidden; border-radius: 4px;">
+                    <img alt="Gospel Conversations" src="img/2025-report/streaming.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+
+                <!-- Right Quote -->
+                <div>
+                    <p style="font-size: 20px; color: #333; margin: 0; line-height: 1.8; font-style: italic;">You guys have no idea how life-changing these conversations have been for me and how many people I've already shared the series with!</p>
+                    <p style="font-size: 18px; color: #333; margin: 30px 0 0 0; font-weight: 600;">— Haley</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: #EFEFEF; padding: 80px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; display: flex; align-items: center; justify-content: center;">
+            <div style="max-width: 1000px; width: 100%; display: flex; justify-content: center;">
+                <img src="img/2025-report/stats.png" alt="" style="max-width: 100%; height: auto;">
+            </div>
+        </section>
+
+        <section style="background: white; padding: 100px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; text-align: center;">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <!-- Title -->
+                <h2 style="font-size: 48px; font-weight: 700; color: #1a1a1a; margin: 0 0 50px 0;">The Work Isn't Done</h2>
+
+                <!-- Content -->
+                <div style="font-size: 16px; color: #333; line-height: 1.8; margin-bottom: 50px;">
+                    <p style="margin-bottom: 25px;">On behalf of the entire team at Light Bearers, I want to thank you for helping us spread the good news of the life, death, and resurrection of Jesus around the world. It is there when you hear likely struggled with confusion, grief, defeat, abuse, and myriad other emotions, you also chose to hope.</p>
+
+                    <p style="margin-bottom: 25px;">Your contributions have helped bring that hope and faith to others. I write with no hyperbole that every tract handled cut, every Bible distributed, and every moment of your presence because of you. Even today you gave himself needed rescue from despair. It was the gospel, and mercy of God, which is the ultimate story this world needs to hear. Thank you.</p>
+
+                    <p style="margin-bottom: 25px;">As you read these words, church planters are trekking through charming a circle to reach the indigenous tribes in Central America. The message is spreading. You're seeing an outpouring of courage and confidence in their faith. These could be stooped. Countless people nourished by religion may never step foot in a church again. They need to encounter the gospel where they are, online. Your support keeps our mission in motion.</p>
+
+                    <p style="margin-bottom: 25px;">As we enter our fortieth year of ministry, we celebrate all that God has done through our partnership and look ahead with renewed determination to keep sharing the undiluted gospel together.</p>
+
+                    <p style="margin-bottom: 50px;">As we close our 2025, would you consider making a special year-end gift? Your donation will not only strengthen our financial foundation as we wrap up this year but also set us up for our initiatives in 2026.</p>
+
+                    <p style="font-weight: 600; margin-bottom: 10px;">Warmly,<br>Ty Gibson</p>
+                </div>
+
+                <!-- Button -->
+                <button style="background: #5a939f; color: white; padding: 16px 45px; border: none; border-radius: 40px; font-size: 14px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: background 0.3s ease; display: flex; align-items: center; justify-content: center; margin: 0 auto;">LEARN MORE AND GIVE</button>
+            </div>
+        </section>
+
+        <!-- <div class="sticky-footer">
+            <div class="carousel section-title-carousel" style="overflow: visible;">
+                <div id="sectionTitles" class="section-titles">
+                    <div class="section-title" data-section="Welcome">A Timeline of 2024</div>
+                   
+                </div>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div class="carousel timeline-viewer">
+                    <div id="timeline" class="timeline">
+                        <div class="timeline-item" data-sections="whole-document">
+                            Scroll down to explore our annual report.
+                        </div>
+
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>January 5-13</span> – Ty, David, and Jeffrey preach the
+                            Unbelievable series at Loma Linda University Church,
+                            sharing how the gospel is too good to not be true.
+                        </div>
+
+
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>January 8-12</span> – Ty and David preach a Week of
+                            Spiritual Renewal at Loma Linda University. The
+                            theme, REALigion, explores an intelligent case for
+                            God’s existence and goodness. Scan the code to
+                            watch the series.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>January 14</span> – ARISE Finland opens for
+                            registration. ARISE alumni lead this
+                            new sister school.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>February 9-11</span> – David speaks for the
+                            Try This At Home marriage retreat
+                            in Norway, exploring practical ways
+                            the gospel impacts one of our most
+                            important relationships.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>February 11-March 3</span> – Ty kicks
+                            off the ARISE Australia class with
+                            his paradigm-shifting lectures on
+                            narrative theology.
+                        </div>
+
+
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>February 28</span> – David concludes
+                            OTwithDA, part 2, a three-month
+                            series of lives on Instagram and
+                            YouTube that takes listeners through
+                            the Old Testament.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>March 3-7</span> – Angelo speaks about
+                            the Gospel and brain science at
+                            the Adventist Student Personnel
+                            Association Conference, a gathering
+                            of student services professionals from
+                            around North America. 
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>March 4-28</span> – David delivers powerful
+                            lectures to the ARISE Australia class
+                            on the role of the covenant and the
+                            church in the biblical narrative.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>April 3</span> – Ty, David, and Angelo launch
+                            the EDIFY series of Live Sessions on
+                            Zoom Webinar with 650 attendees.
+                            They explore the truth of how we’re
+                            whole in Christ and yet still growing.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>April 3</span> – The Light Bearers Community
+                            Facebook Group is launched, where
+                            over a thousand people have joined for
+                            learning, connection, and prayer.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>April 12-13</span> – Ty preaches a powerful
+                            series at the Ooltewah Adventist
+                            Church, Real Love in an AI World.
+                            Attendees discovered the relevance of
+                            God’s love in the modern age.
+                        </div>
+
+
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>April 16-27</span> – Ty preaches at Australia
+                            Big Camp about the intrinsic value
+                            of human beings, exploring how no
+                            person can be replaced by technology
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>April 27-May 13</span> – Angelo teaches our
+                            ARISE Australia class the importance
+                            of community in discipleship and
+                            how to build healthy communities in
+                            our churches.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>April 28-May 3</span> – Ty teaches classes
+                            on the book of Revelation and
+                            covenant community with ARISE
+                            Australia students.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>May 3</span> – Light Bearers Español is
+                            launched, consisting of a website
+                            entirely in Spanish, plus a Facebook
+                            page and Instagram account. The
+                            library of resources, Bible studies, and
+                            sermons grows.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>May 11</span> – The eleventh ARISE Australia
+                            class graduates and is sent out to
+                            make disciples and share the gospel
+                            story wherever God leads them.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>May 16</span> – In the second Live Session,
+                            part two of the EDIFY series, Ty, David,
+                            and Angelo have an honest conversation
+                            about re-setting our lives and growing
+                            through challenges and hardship.
+                        </div>
+
+
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>May 30-31</span> – Angelo preaches at the
+                            Georgia Cumberland Conference
+                            Camp Meeting about the importance
+                            of being lovingly attached to Jesus. 
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>June 4</span> – In part 3 of the EDIFY Live
+                            Session series, Ty, David, and Angelo
+                            grapple with the “God questions.”
+                            Does God exist? If so, how can I know
+                            Him for myself? 
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>June 18-22</span> – Ty preaches at the Upper
+                            Columbia Conference Camp Meeting
+                            on how God’s love heals us and what
+                            it looks like for the church to be a
+                            righteousness by faith community.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>June 22-23</span> – David speaks at the Try
+                            This At Home marriage seminar in
+                            Dover, Delaware, painting a picture of
+                            gospel-centered marriages.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>June 24-28</span> – Ty speaks at the Southern
+                            New England Camp Meeting to an
+                            excited crowd about the essence
+                            of the gospel, how it changes our
+                            relationships, and how it changes us.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>July 3</span> – In part four of the EDIFY Live
+                            Session series, Ty, David, and Angelo
+                            discuss love as a motivating power
+                            and how it is the only force that
+                            creates lasting change.
+                        </div>
+
+
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>July 19-21</span> – Angelo preaches about
+                            the rhythms of rest, repentance, and
+                            joy to hundreds of young adults in
+                            Houston, Texas. 
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>July 20-27</span> – Ty preaches on
+                            righteousness by faith at the
+                            Poland Camp Meeting to a group of
+                            approximately one thousand eager
+                            and enthusiastic people.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>July 28-July 31</span> – Ty preaches on the
+                            gospel and righteousness by faith for
+                            pastors and their families at the MidAmerica Union pastors meetings.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>July 31-August 3</span> – Ty and the team
+                            are at ASI, networking with attendees
+                            and connecting with mission
+                            organizations who distribute
+                            Light Bearers literature.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>August 7</span> – In the fifth EDIFY Live
+                            Session, Ty and Angelo explore
+                            how the gospel can help us identify
+                            unhelpful forms of thinking and stop
+                            self-sabotaging.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>August 22</span> – The first-ever ARISE
+                            Finland class begins with 38 students
+                            from 12 countries.
+                        </div>
+
+
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>August 22-September 8</span> – Ty teaches
+                            for the first ARISE Finland class,
+                            exploring why narrative theology is
+                            critical to our growth as disciples.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>September 4</span> – Ty, David, and Angelo,
+                            in the sixth EDIFY Live Session hold
+                            an ask-us-anything Q&A, where they
+                            respond to questions from the Light
+                            Bearers community
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>September 6-12</span> – David preaches the
+                            good news of God’s love at a weekend
+                            youth rally, followed by five days of
+                            pastoral meetings.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>September 16-22</span> – Ty preaches a
+                            Week of Prayer at Andrews University
+                            for the students and local community,
+                            grounding them in the gospel. 
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>September 18-October 9</span> – David
+                            teaches at ARISE Finland, sharing with
+                            students how they can practically
+                            exemplify the gospel in evangelism
+                            and much more.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>September 20-21</span> – Angelo speaks
+                            for the Southern Adventist University
+                            Counseling Colloquium on the theme,
+                            “Transformed by the Journey.” 
+                        </div>
+
+
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>September 29-October 2</span> – Ty speaks
+                            at RISE, the Southern Union Pastors
+                            Convention, painting a gospelcentered vision for ministry.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>October 9</span> – In the seventh EDIFY Live
+                            Session, Angelo, David, and Ty have a
+                            thoughtful conversation on navigating
+                            toxic cultures with the gospel.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>October 11-13</span> – Ty speaks at Southern
+                            Adventist University for the Creation
+                            Is Crucial Conference. He shares how
+                            our view of creation impacts our view
+                            of God's character.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>October 17-November 4</span> – Ty and
+                            David serve as co-guides for the
+                            Following in the Apostles Footsteps
+                            Tour of Greece, sharing theological
+                            insights and devotionals.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>October 22-31</span> – Jeffrey and Angelo
+                            teach at ARISE Finland about how
+                            to study the Bible, the judgment,
+                            and how to build gospel-centered
+                            communities in our churches.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>November 6</span> – In our eighth EDIFY Live
+                            Session, Ty, David, and Angelo discuss
+                            the vital ingredients needed for
+                            creating a good sandwich. They also
+                            explore the similar ingredients needed
+                            to make a good life.
+                        </div>
+
+
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>November 9-10</span> – David speaks for the
+                            Try This At Home marriage seminar
+                            in Templeton Hills, California, sharing
+                            practical wisdom and insights.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>November 16</span> – ARISE Finland
+                            graduates its first class, deploying 38
+                            beautiful disciples to share the gospel.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>November 16-17</span> – David speaks at the
+                            Try This At Home marriage seminar
+                            in Medford, Oregon, sharing gospelcentered relationship principles.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>November 17-23</span> – Ty speaks at
+                            Bogenhofen University, sharing the
+                            message of righteousness by faith and
+                            its power to impact the church.
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>December 4</span> – In the ninth and final
+                            Live Session of the EDIFY series, Ty,
+                            David, and Angelo talk about how God
+                            throws a party and His desire for us to
+                            engage in radical hospitality
+                        </div>
+                        <div class="timeline-item" data-sections="whole-document">
+                            <span>December 6-7</span> – David preaches at a
+                            Central California Conference youth
+                            event, sharing righteousness by faith
+                            with dozens of teenagers.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div> -->
+
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const targetId = "XLXUPPWE";
+            const checkInterval = 100; // Check every 100ms
+            const maxWaitTime = 10000; // Stop trying after 10 seconds
+
+            let elapsedTime = 0;
+            const interval = setInterval(() => {
+                const element = document.getElementById(targetId);
+
+                if (element) {
+                    setTimeout(() => {
+                        element.style.marginBottom = "100px";
+                    }, 5000); // Wait 5 seconds after finding the element
+                    clearInterval(interval); // Stop checking once element is found
+                } else if (elapsedTime >= maxWaitTime) {
+                    clearInterval(interval); // Stop checking if max wait time is reached
+                    console.warn(`Element with ID "${targetId}" not found within ${maxWaitTime / 1000} seconds.`);
+                }
+
+                elapsedTime += checkInterval;
+            }, checkInterval);
+        });
+    </script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Register custom counter effect
+        gsap.registerEffect({
+            name: "counter",
+            extendTimeline: true,
+            defaults: {
+                end: 0,
+                duration: 0.5,
+                ease: "power1",
+                increment: 1,
+            },
+            effect: (targets, config) => {
+                let tl = gsap.timeline();
+                let num = targets[0].innerText.replace(/\,/g, '');
+                targets[0].innerText = num;
+
+                tl.to(targets, {
+                    duration: config.duration,
+                    innerText: config.end,
+                    modifiers: {
+                        innerText: function(innerText) {
+                            return gsap.utils.snap(config.increment, innerText)
+                                .toString()
+                                .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                        }
+                    },
+                    ease: config.ease
+                }, 0);
+
+                return tl;
+            }
+        });
+
+        // Create timelines with ScrollTrigger for each stat element
+        let tl1 = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#stat1",
+                start: "top 80%", // Adjust this as needed for when you want the animation to start
+                toggleActions: "play none none none"
+            }
+        });
+        tl1.from("#stat1", {
+                opacity: 0
+            })
+            .counter("#count1", {
+                end: 3840000,
+                ease: "linear",
+                duration: 2
+            }, "-=0.5");
+
+        let tl2 = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#stat2",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+        tl2.from("#stat2", {
+                opacity: 0
+            }, "+=0.5")
+            .counter("#count2", {
+                end: 83,
+                ease: "linear",
+                duration: 2
+            }, "-=0.5");
+
+        let tl3 = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#stat3",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+        tl3.from("#stat3", {
+                opacity: 0
+            }, "+=0.5")
+            .counter("#count3", {
+                end: 2850,
+                ease: "linear",
+                duration: 2
+            }, "-=0.5");
+    </script>
+    <script>
+        const sections = document.querySelectorAll('.content-section');
+        const timeline = document.getElementById('timeline');
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const sectionTitles = document.getElementById('sectionTitles');
+        const sectionTitleItems = document.querySelectorAll('.section-title');
+
+        // Group timeline items by section
+        const groupedTimelineItems = {};
+
+        timelineItems.forEach(item => {
+            const sectionId = item.getAttribute('data-sections');
+            if (!groupedTimelineItems[sectionId]) {
+                groupedTimelineItems[sectionId] = [];
+            }
+            groupedTimelineItems[sectionId].push(item);
+        });
+
+        window.addEventListener('scroll', () => {
+            const items = timelineItems;
+            const totalScrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+            // Calculate scroll position and effective scroll ratio up to 90% of the document
+            const scrollPosition = window.scrollY;
+            let scrollRatio = scrollPosition / (totalScrollableHeight * 0.9);
+
+            // Cap scrollRatio at 1 so it doesn't exceed the timeline's last item
+            scrollRatio = Math.min(scrollRatio, 1);
+
+            // Calculate the active index based on the adjusted scroll ratio
+            const activeIndex = Math.round(scrollRatio * (items.length - 1));
+
+            // Clear all active classes first
+            timelineItems.forEach(item => item.classList.remove('active'));
+            sectionTitleItems.forEach(title => title.classList.remove('active'));
+
+            // Set the active class for the current item based on the adjusted scroll position
+            if (items[activeIndex]) {
+                items[activeIndex].classList.add('active');
+
+                // Activate corresponding section title, if applicable
+                const sectionTitle = Array.from(sectionTitles.children).find(title => title.getAttribute('data-sections') === items[activeIndex].getAttribute('data-sections'));
+                if (sectionTitle) {
+                    const titleIndex = Array.from(sectionTitleItems).indexOf(sectionTitle);
+                    sectionTitle.classList.add('active');
+                    sectionTitles.style.transform = `translateY(-${titleIndex * 50}px)`;
+                }
+
+                // Update the timeline's transform to focus on the active item
+                const itemIndex = Array.from(timelineItems).indexOf(items[activeIndex]);
+                timeline.style.transform = `translateY(-${itemIndex * 50}px)`;
+            }
+        });
+
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalContent = document.getElementById('modalContent');
+        const modalText = document.getElementById('modalText');
+        const closeButton = document.getElementById('closeButton');
+        const sectionModal = document.getElementById('sectionModal');
+        const sectionList = document.getElementById('sectionList');
+        const sectionCloseButton = document.getElementById('sectionCloseButton');
+
+        timelineItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // If there's text to display, open the modal with the full text
+                if (item.textContent.trim() !== '') {
+                    modalText.innerHTML = item.innerHTML;
+                    modalOverlay.style.display = 'flex';
+                }
+            });
+        });
+
+        // Close the modal when the close button is clicked
+        closeButton.addEventListener('click', () => {
+            modalOverlay.style.display = 'none';
+        });
+
+        // Close the modal if clicking outside the modal content
+        modalOverlay.addEventListener('click', (event) => {
+            if (event.target === modalOverlay) {
+                modalOverlay.style.display = 'none';
+            }
+        });
+
+        // Close the seciton modal when clicking outside of it
+        document.addEventListener('click', (event) => {
+            const sectionModalLocal = document.getElementById('sectionModal');
+            if (sectionModalLocal.style.display === 'flex' &&
+                !sectionModalLocal.contains(event.target)) {
+                closeSectionModal();
+            }
+        });
+
+        // Close the section modal when the close button is clicked
+        sectionCloseButton.addEventListener('click', () => {
+            closeSectionModal();
+        });
+
+        // Event listener to open section modal when section title is clicked
+        document.querySelectorAll('.section-title').forEach(title => {
+            title.addEventListener('click', openSectionModal);
+        });
+
+        function closeSectionModal() {
+            // Hide modal
+            sectionModal.style.display = 'none';
+            // Re-enable scrolling on document
+            document.documentElement.style.overflow = '';
+            document.documentElement.style.touchAction = '';
+        }
+
+        // Function to open the section list modal
+        function openSectionModal(event) {
+            event.stopPropagation();
+            // Clear any existing section links
+            sectionList.innerHTML = '';
+
+            // Create a link for each section
+            sections.forEach(section => {
+                const sectionLink = document.createElement('div');
+                sectionLink.className = 'section-link';
+                sectionLink.textContent = section.id;
+                sectionLink.addEventListener('click', () => {
+                    section.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                    closeSectionModal();
+                });
+                sectionList.appendChild(sectionLink);
+            });
+
+            // Display the modal
+            sectionModal.style.display = 'flex';
+            // Prevent scrolling while modal is open
+            document.documentElement.style.overflow = 'hidden';
+            document.documentElement.style.touchAction = 'none';
+        }
+    </script>
+    <script>
+        //    window.onload = function() {
+        //     let panel-disableds = gsap.utils.toArray(".panel-disabled");
+
+        //     panel-disableds.forEach((panel-disabled, i) => {
+        //         ScrollTrigger.create({
+        //             trigger: panel-disabled,
+        //             start: () => panel-disabled.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
+        //             pin: true,
+        //             pinSpacing: false,
+        //             anticipatePin: 1 // Add slight anticipation to smooth pin transitions
+        //         });
+        //     });
+
+        //     // Refresh on resize or element resize with slight delay
+        //     const resizeObserver = new ResizeObserver(() => {
+        //         setTimeout(() => {
+        //             ScrollTrigger.refresh();
+        //         }, 100); // Delay refresh to prevent immediate recalculation issues
+        //     });
+        //     panel-disableds.forEach(panel-disabled => resizeObserver.observe(panel-disabled));
+        //     window.addEventListener("resize", () => {
+        //         setTimeout(() => {
+        //             ScrollTrigger.refresh();
+        //         }, 100);
+        //     });
+        // };
+
+        gsap.utils.toArray(".slide-up-item").forEach((item) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item, // Trigger each item individually
+                    start: "top 80%", // Start when the top of each item is 80% down the viewport
+                    toggleActions: "play none none none" // Only play once when entering
+                },
+                duration: 1.5, // Animation duration
+                opacity: 0, // Start with 0 opacity for fade-in
+                y: 50, // Start 50px below the original position for slide-up effect
+                ease: "power2.out" // Smooth easing
+            });
+        });
+
+        gsap.utils.toArray(".slide-left").forEach((item) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item, // Trigger each item individually
+                    start: "top 80%", // Start when the top of each item is 80% down the viewport
+                    toggleActions: "play none none none" // Only play once when entering
+                },
+                duration: 1.5, // Animation duration
+                opacity: 0, // Start with 0 opacity for fade-in
+                x: -100, // Slide in from the left (negative x)
+                ease: "power2.out" // Smooth easing
+            });
+        });
+
+        gsap.utils.toArray(".slide-right").forEach((item) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item, // Trigger each item individually
+                    start: "top 80%", // Start when the top of each item is 80% down the viewport
+                    toggleActions: "play none none none" // Only play once when entering
+                },
+                duration: 1.5, // Animation duration
+                opacity: 0, // Start with 0 opacity for fade-in
+                x: 100, // Slide in from the right (positive x)
+                ease: "power2.out" // Smooth easing
+            });
+        });
+    </script>
+    <script>
+        function OpenDonate() {
+            FundraiseUp.openCheckout('FUNZTULTLAT');
+        }
+    </script>
+    <style>
+        #hsForm_35fea1ea-2992-453f-a29d-95b01092a6a4 {
+            justify-content: center !important;
+        }
+
+        .fixed-title {
+            font-size: 2.35714286em !important;
+        }
+
+        @media screen and (max-width: 767px) {
+            #hsForm_35fea1ea-2992-453f-a29d-95b01092a6a4 .hs_email {
+                width: unset !important;
+            }
+
+            .fixed-title {
+                font-size: 1.7em !important;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://use.typekit.net/whg5qsk.css">
+</body>
+
+</html>

@@ -72,9 +72,11 @@ body {
     line-height: 1.1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .hero-section {
         padding: 40px;
+        background-position: 90% bottom;
+
     }
     
     .hero-year,
@@ -94,13 +96,13 @@ body {
     .hero-section {
         padding: 20px;
     }
-    
+
     .hero-year,
     .hero-title,
     .hero-subtitle {
         font-size: 2rem;
     }
-    
+
     .logo {
         bottom: 20px;
         right: 20px;
@@ -189,7 +191,7 @@ body {
     color: #000;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .letter-section {
         padding: 40px 20px;
     }
@@ -381,11 +383,17 @@ body {
     border-radius: 4px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .literature-container {
         grid-template-columns: 1fr;
         gap: 40px;
     }
+
+      .literature-image-container {
+        order: -1;
+        height: 250px;
+    }
+
     
     .literature-title {
         font-size: 32px;
@@ -400,36 +408,11 @@ body {
     }
     
     .literature-image-container {
-        height: 300px;
+        height: 850px;
     }
 }
 
-@media (max-width: 480px) {
-    .literature-section {
-        padding: 40px 15px;
-    }
-    
-    .literature-title {
-        font-size: 28px;
-    }
-    
-    .literature-description {
-        font-size: 15px;
-    }
-    
-    .literature-stats-title {
-        font-size: 20px;
-    }
-    
-    .literature-stat-number {
-        font-size: 24px;
-    }
-    
-    .literature-stat-icon {
-        width: 40px;
-        height: 40px;
-    }
-}
+
 
 /* Publishing Section Styles */
 .publishing-section {
@@ -503,14 +486,14 @@ body {
     margin: 0 0 25px 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .publishing-container {
         grid-template-columns: 1fr;
         gap: 40px;
     }
     
     .publishing-image-container {
-        height: 300px;
+        height: 850px;
     }
     
     .publishing-content {
@@ -630,38 +613,40 @@ body {
     margin-top: 2px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .arise-section {
-        padding: 60px 15px;
+        padding: 60px 20px;
     }
-    
+
     .arise-title {
         font-size: 32px;
         margin-bottom: 40px;
     }
-    
+
     .arise-intro {
         margin-bottom: 50px;
     }
-    
+
     .arise-intro-text {
-        font-size: 15px;
+        font-size: 16px;
         margin-bottom: 15px;
+        line-height: 1.6;
     }
-    
+
     .arise-stats-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 50px;
     }
-    
+
     .arise-stats-title {
-        font-size: 28px;
+        font-size: 32px;
         margin-bottom: 20px;
     }
-    
+
     .arise-stats-item {
-        font-size: 15px;
+        font-size: 32px;
         margin-bottom: 15px;
+        line-height: 1.6;
     }
 }
 
@@ -899,7 +884,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .dwell-section {
         min-height: auto;
     }
@@ -910,12 +895,12 @@ body {
     }
     
     .dwell-image-container {
-        height: 320px;
+        height: 850px;
         order: 1;
     }
     
     .dwell-image {
-        height: 320px;
+        height: 850px;
     }
     
     .dwell-content {
@@ -1014,7 +999,7 @@ body {
     background: #1a1a1a;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .sandy-testimony-section {
         padding: 40px 15px 80px 15px;
     }
@@ -1329,7 +1314,7 @@ body {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
     .streaming-grace-section {
         padding: 60px 15px;
     }
@@ -1337,6 +1322,10 @@ body {
     .streaming-grace-container {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .streaming-grace-image-container {
+        order: -1;
     }
 
     .streaming-grace-title {
@@ -1471,7 +1460,7 @@ body {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
     .testimonial-quote-section {
         padding: 60px 15px;
     }
@@ -1482,7 +1471,7 @@ body {
     }
 
     .testimonial-quote-image-container {
-        height: 220px;
+        height: 850px;
     }
 
     .testimonial-quote-text {

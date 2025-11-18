@@ -187,7 +187,8 @@ body {
 
 .signature-name {
     font-family: 'degular', sans-serif;
-    font-size: 1.4rem;
+    font-size: 30px;
+    line-height: 40px;
     font-weight: 400;
     color: #000;
 }

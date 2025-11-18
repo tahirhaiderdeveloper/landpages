@@ -161,8 +161,8 @@ body {
 
 .letter-text {
     font-family: 'degular', sans-serif;
-    font-size: 1.2rem;
-    line-height: 1.8;
+    font-size: 30px;
+    line-height: 40px;
     color: #000;
     margin-bottom: 40px;
     text-align: left;
@@ -179,7 +179,8 @@ body {
 
 .signature-line {
     font-family: 'degular', sans-serif;
-    font-size: 1.2rem;
+    font-size: 30px;
+    line-height: 40px;
     color: #000;
     margin-bottom: 20px;
 }
@@ -335,7 +336,8 @@ body {
 }
 
 .literature-description {
-    font-size: 16px;
+    font-size: 30px;
+    line-height: 40px;
     color: #000000;
     margin: 0 0 30px 0;
     line-height: 1.6;
@@ -462,17 +464,18 @@ body {
 }
 
 .publishing-info-text {
-    font-size: 16px;
+    font-size: 30px;
+    line-height: 40px;
     color: #000000;
     margin: 0;
     line-height: 1.6;
 }
 
 .publishing-cost-text {
-    font-size: 16px;
+    font-size: 30px;
     color: #000000;
     margin: 0 0 20px 0;
-    line-height: 1.6;
+    line-height: 40px;
 }
 
 .publishing-cost-text em {
@@ -556,9 +559,9 @@ body {
 }
 
 .arise-intro-text {
-    font-size: 16px;
+    font-size: 30px;
     color: #000000;
-    line-height: 1.8;
+    line-height: 40px;
     margin: 0 0 20px 0;
 }
 
@@ -592,9 +595,9 @@ body {
 }
 
 .arise-stats-item {
-    font-size: 16px;
+    font-size: 30px;
     color: #000000;
-    line-height: 1.8;
+    line-height: 40px;
     margin-bottom: 20px;
     display: flex;
     align-items: flex-start;
@@ -697,7 +700,7 @@ body {
 .testimony-quote {
     font-size: 22px;
     color: #000000;
-    line-height: 1.8;
+    line-height: 40px;
     margin: 0;
     font-style: italic;
     text-align: center;
@@ -826,10 +829,10 @@ body {
 }
 
 .dwell-description {
-    font-size: 18px;
+    font-size: 30px;
     color: #000000;
     margin: 0 0 50px 0;
-    line-height: 1.7;
+    line-height: 40px;
 }
 
 .dwell-stats {
@@ -1238,10 +1241,10 @@ body {
 }
 
 .streaming-grace-description {
-    font-size: 16px;
+    font-size: 30px;
     color: #000000;
     margin: 0 0 40px 0;
-    line-height: 1.6;
+    line-height: 40px;
 }
 
 .streaming-grace-stats {
@@ -1276,7 +1279,8 @@ body {
 }
 
 .streaming-grace-stat-text {
-    font-size: 16px;
+    font-size: 30px;
+    line-height: 40px;
     color: #000000;
     margin: 0;
 }
@@ -1562,6 +1566,9 @@ body {
 
 .work-isnt-done-paragraph {
     margin-bottom: 25px;
+    font-size: 30px;
+    line-height: 40px;
+
 }
 
 .work-isnt-done-highlight {
@@ -1573,6 +1580,8 @@ body {
 }
 
 .work-isnt-done-signature {
+    font-size: 30px;
+    line-height: 40px;
     font-weight: 600;
     margin-bottom: 10px;
 }

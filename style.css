@@ -824,6 +824,7 @@ body {
     flex-direction: column;
     justify-content: center;
     background: white;
+    font-family: 'degular', sans-serif;
 }
 
 .dwell-title {
@@ -930,7 +931,7 @@ body {
     }
     
     .dwell-description {
-        font-size: 48px !important;
+        font-size: 48.6224px !important;
         margin-bottom: 15px;
         line-height: 50px !important;
     }

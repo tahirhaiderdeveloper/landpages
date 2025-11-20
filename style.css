@@ -1683,7 +1683,7 @@ body {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
     .work-isnt-done-section {
         padding: 80px 15px;
     }
@@ -1694,7 +1694,7 @@ body {
 
     .work-isnt-done-content {
         /* font-size: 15px; */
-        text-align: left;
+        text-align: center;
     }
 
     .work-isnt-done-highlight {
@@ -1702,10 +1702,10 @@ body {
     }
 
     .work-isnt-done-button {
-        padding: 20px 50px;
-        /* font-size: 12px; */
+        padding: 30px 50px;
+        font-size: 24px;
         width: 100%;
-        max-width: 100%;
+        max-width: 50%;
     }
 
     .work-isnt-done-download-link {
@@ -1713,7 +1713,7 @@ body {
     }
 
     .work-isnt-done-download-text {
-        font-size: 16px;
+        font-size: 26px;
     }
 }
 
@@ -1741,8 +1741,8 @@ body {
     }
 
     .work-isnt-done-button {
-        padding: 12px 25px;
-        font-size: 11px;
+        padding: 18px 25px;
+        font-size: 14px;
     }
 
     .work-isnt-done-download-link {

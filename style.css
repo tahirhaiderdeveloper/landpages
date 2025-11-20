@@ -248,11 +248,11 @@ body {
     color: white;
     text-decoration: none;
     font-family: 'degular', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    padding: 20px 40px;
+    padding: 28px 60px;
     border-radius: 50px;
     margin-bottom: 40px;
     transition: all 0.3s ease;
@@ -301,14 +301,14 @@ body {
     .cta-section {
         padding: 60px 20px;
     }
-    
+
     .cta-title {
         /* font-size: 2.2rem; */
     }
-    
+
     .cta-button {
         /* font-size: 1rem; */
-        padding: 18px 35px;
+        padding: 24px 50px;
     }
 }
 
@@ -1611,10 +1611,10 @@ body {
 .work-isnt-done-button {
     background: #5a939f;
     color: white;
-    padding: 16px 45px;
+    padding: 24px 60px;
     border: none;
     border-radius: 40px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     cursor: pointer;
     text-transform: uppercase;
@@ -1702,10 +1702,10 @@ body {
     }
 
     .work-isnt-done-button {
-        padding: 12px 30px;
+        padding: 20px 50px;
         /* font-size: 12px; */
         width: 100%;
-        max-width: 300px;
+        max-width: 100%;
     }
 
     .work-isnt-done-download-link {

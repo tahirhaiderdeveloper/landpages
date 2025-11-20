@@ -882,9 +882,9 @@ body {
         height: 450px;
     }
       .dwell-description {
-        font-size: 40px !important;
-        margin-bottom: 40px;
-        line-height: 50px !important;
+        /* font-size: 40px !important;
+        margin-bottom: 40px; */
+        line-height: 40px !important;
     }
     
     
@@ -966,7 +966,7 @@ body {
     }
     
     .dwell-description {
-        font-size: 30px !important;
+        /* font-size: 30px !important; */
         line-height: 40px !important;
     }
     

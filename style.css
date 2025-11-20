@@ -652,9 +652,10 @@ body {
     }
 
     .arise-stats-item {
-        font-size: 45px;
+        /* font-size: 45px; */
         margin-bottom: 15px;
-        line-height: 50px;
+        /* line-height: 50px; */
+        line-height: 40px;
     }
 }
 

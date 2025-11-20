@@ -932,9 +932,10 @@ body {
     }
     
     .dwell-description {
-        font-size: 40.6224px !important;
+        /* font-size: 40.6224px !important;
         margin-bottom: 15px;
-        line-height: 50px !important;
+        line-height: 50px !important; */
+        line-height: 40px !important;
     }
     
     .dwell-stats {
